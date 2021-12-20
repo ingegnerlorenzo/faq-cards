@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+:root {
+    --very-dark-blue:hsl(238, 29%, 16%);
+    --soft-red: hsl(14, 88%, 65%);
+
+    /* Gradient */
+    --gradient-violet: hsl(273, 75%, 66%);
+    --gradient-blue: hsl(240, 73%, 65%);
+
+    /* Text */
+    --graysh-blue: hsl(237, 12%, 33%);
+    --very-dark-graysh-blue: hsl(240, 6%, 50%);
+    --light-grayish-grey: hsl(240, 5%, 91%);
+
+    /* Font family */
+    --font-family: 'Kumbh Sans', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 110vh;
+    background: -moz-linear-gradient(to top, var(--gradient-blue), var(--gradient-violet)); 
+    font-family: var(--font-family);
+    overflow: auto;
+}    
+
+img.desktop {
+    display: none;
+}
+
+.main {
+    background-color: white;
+    border-radius: 25px;
+    width: 90%;
+    height: max-content;
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+    box-shadow: 0 70px 70px -80px rgba(0,0,0, .9);
+}
+
+.main > .mobile {
+    position: absolute;
+    top: 0;
+}
+
+.main > .mobile-main {
+  top: -110px;
+  width: 250px;
+}
+
+.faq-container {
+    width: 90%;
+    height: max-content;
+    max-width: 600px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.faq-container > .title {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 2rem;
+    height: 50px;
+    margin: 120px auto 0;
+
+   }
+
+.faq-container > .faq-box {
+    width: 100%;
+    height: max(60px, 100%);
+    border-bottom: 1px solid hsl(240, 5%, 91%);
+    font-size: .9rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+   justify-content: left;
+   padding: 15px 0;
+   color:hsl(237, 12%, 33%);
+   cursor: pointer;
+}
+
+.faq-box > .faq-q {
+    width: min(100%, 90%);
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: .9rem;
+}
+
+.faq-box > .faq-box:hover,
+.faq-box > .faq-box:active {
+    font-weight: 700;
+}
+
+.faq-box > .arrow {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+.faq-box.active > .faq-q {
+    font-weight: 700;
+    color:rgba(0,0,0, .9);
+}
+
+.faq-box.active > .arrow {
+    transform: rotate(.5turn);
+    transition: transform .3s ease;
+    top: 25%;
+}
+
+.faq-text {
+    display: none;
+}
+
+.faq-box.active > .faq-text {
+    display: block;
+    margin: 10px 0;
+    width: 90%;
+    text-align: left;
+    font-size: .9rem;
+}
+
+@media (min-width: 1040px) {
+
+    body {
+        height: 100vh;
+    }
+    .main {
+        width: 70vw;
+        height: 65vh;
+        flex-direction: row;
+        justify-content: right;
+        align-items: center;
+        background-image: url("images/illustration-woman-online-desktop.svg"), 
+        url("images/bg-pattern-desktop.svg");
+        background-repeat: no-repeat;
+        background-position: -15%, -600px -250px;
+        position: relative;
+    }
+
+    .mobile-main,
+    .mobile {
+        display: none;
+    }
+
+    .main > .desktop-box {
+        display: block;
+        position: absolute;
+        left: -130px;
+        top: 42%;
+    }
+
+    .faq-container {
+        width: 40%;
+        margin: 0 50px 100px;
+        flex-direction: column;
+        font-size: 1rem;
+        max-height: max-content;
+    }
+
+    .faq-container > .title {
+        margin: 100px 0 0;
+    }
+
+}
