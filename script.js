@@ -2,6 +2,13 @@ const box = document.querySelectorAll(".faq-box")
 
 box.forEach(box => {
     box.addEventListener("click", () => {
-        box.classList.toggle("active")
+        removeActive()
+        box.classList.add("active")
     })
 })
+
+function removeActive() {
+    box.forEach(box => {
+            box.classList.remove("active")
+        })
+}

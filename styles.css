@@ -31,7 +31,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 110vh;
+    height: 120vh;
     background: -moz-linear-gradient(to top, var(--gradient-blue), var(--gradient-violet)); 
     font-family: var(--font-family);
     overflow: auto;
@@ -45,7 +45,7 @@ img.desktop {
     background-color: white;
     border-radius: 25px;
     width: 90%;
-    height: max-content;
+    height: 80vh;
     display: flex; 
     flex-direction: column;
     justify-content: flex-end;
@@ -67,59 +67,66 @@ img.desktop {
 
 .faq-container {
     width: 90%;
-    height: max-content;
+    height: 90vh;
     max-width: 600px;
     margin-bottom: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
-.faq-container > .title {
+.title {
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 2rem;
+    font-size: 2.5rem;
     height: 50px;
-    margin: 120px auto 0;
-
+    margin: 120px auto 20px;
    }
 
 .faq-container > .faq-box {
     width: 100%;
-    height: max(60px, 100%);
+    height: min-content;
     border-bottom: 1px solid hsl(240, 5%, 91%);
-    font-size: .9rem;
-    position: relative;
+    font-size: 1rem;
     display: flex;
     flex-direction: column;
-    align-items: left;
-   justify-content: left;
-   padding: 15px 0;
+   align-items: left;
+   justify-content:first baseline;
    color:hsl(237, 12%, 33%);
    cursor: pointer;
+  padding: 10px 0 20px;
+  transition: height 5s ease;
 }
+
 
 .faq-box > .faq-q {
-    width: min(100%, 90%);
-    margin-top: 15px;
+    width: 100%;
     font-weight: 400;
-    font-size: .9rem;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.faq-box > .faq-box:hover,
-.faq-box > .faq-box:active {
-    font-weight: 700;
+
+.faq-box:hover > .faq-q,
+.faq-box:active > .faq-q {
+    color:hsl(14, 88%, 65%);
 }
 
-.faq-box > .arrow {
+ .arrow {
     cursor: pointer;
     border: none;
     background-color: transparent;
     height: 10px;
     width: 10px;
-    position: absolute;
-    right: 0;
-    top: 50%;
+ 
+}
+
+.faq-box.active {
+    height: max-content;
+    padding: 10px 0;
 }
 
 .faq-box.active > .faq-q {
@@ -127,10 +134,13 @@ img.desktop {
     color:rgba(0,0,0, .9);
 }
 
-.faq-box.active > .arrow {
+.faq-box.active:hover > .faq-q {
+    color:hsl(14, 88%, 65%);
+}
+
+.faq-box.active > .faq-q > .arrow {
     transform: rotate(.5turn);
     transition: transform .3s ease;
-    top: 25%;
 }
 
 .faq-text {
@@ -142,20 +152,22 @@ img.desktop {
     margin: 10px 0;
     width: 90%;
     text-align: left;
-    font-size: .9rem;
+    font-size: 1rem;
 }
 
-@media (min-width: 1040px) {
+@media (min-width: 1200px) {
 
     body {
         height: 100vh;
     }
+
     .main {
-        width: 70vw;
-        height: 65vh;
-        flex-direction: row;
-        justify-content: right;
-        align-items: center;
+        width: 65vw;
+        height: 75vh;
+        flex-direction: column;
+        align-items: right;
+        justify-content: safe;
+        margin-top: 0;
         background-image: url("images/illustration-woman-online-desktop.svg"), 
         url("images/bg-pattern-desktop.svg");
         background-repeat: no-repeat;
@@ -171,20 +183,22 @@ img.desktop {
     .main > .desktop-box {
         display: block;
         position: absolute;
-        left: -130px;
+        left: -110px;
         top: 42%;
     }
 
     .faq-container {
         width: 40%;
-        margin: 0 50px 100px;
+        height: 50vh;
         flex-direction: column;
-        font-size: 1rem;
-        max-height: max-content;
+        justify-content: left;
+        margin: 20px 50px 20px auto;
     }
 
-    .faq-container > .title {
-        margin: 100px 0 0;
+    .title {
+        text-align: left;
+        width: 40%;
+        margin: 30px 50px 10px auto;
     }
 
 }
